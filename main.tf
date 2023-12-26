@@ -211,7 +211,43 @@ variable "def_map_any" {
 
 ## ---- Object ----------
 
-variable "object" {
+variable "simple_object" {
+  type = object({
+    name = string
+    age  = number
+  })
+}
+
+variable "object_with_default" {
+  type = object({
+    name = string
+    age  = number
+  })
+  default = {
+    name = "Bob"
+    age  = 23
+  }
+}
+
+variable "object_with_attr_default" {
+  type = object({
+    name = optional(string, "Bob")
+    age  = optional(number, 23)
+  })
+}
+
+variable "object_with_nest_object" {
+  type = object({
+    name = string
+    age  = number
+    email = optional(object({
+      address = string
+      domain  = optional(string, "test.com")
+    }))
+  })
+}
+
+variable "object_with_default_and_nest_object" {
   type = object({
     name = string
     age  = number
@@ -230,18 +266,103 @@ variable "object" {
   }
 }
 
-output "output_str" {
-  value = var.str
+variable "object_with_default_and_nest_object2" {
+  type = object({
+    name = string
+    age  = number
+    email = optional(object({
+      address = string
+      domain  = optional(string, "test.com")
+    }))
+  })
+  default = {
+    name = "Bob"
+    age  = 23
+    email = {
+      address = "bob"
+    }
+  }
 }
 
-output "output_num" {
-  value = var.num
+variable "object_with_default_and_nest_object3" {
+  type = object({
+    name = string
+    age  = number
+    email = optional(
+      object({
+        address = string
+        domain  = optional(string, "attr.com")
+      }),
+      {
+        address = "bob_nest",
+        domain  = "nest.com"
+    })
+  })
+  default = {
+    name = "Bob"
+    age  = 23
+    email = {
+      address = "bob"
+      domain  = "example.com"
+    }
+  }
 }
 
-output "output_bool" {
-  value = var.bool
+variable "list_object_with_default_and_nest_object" {
+  type = list(object({
+    name = string
+    age  = number
+    email = optional(
+      object({
+        address = string
+        domain  = optional(string, "attr.com")
+      }),
+      {
+        address = "bob_nest",
+        domain  = "nest.com"
+    })
+  }))
+  default = [{
+    name = "Bob"
+    age  = 23
+    email = {
+      address = "bob"
+      domain  = "example.com"
+    }
+  }]
 }
 
-output "output_list_number" {
-  value = var.list_number
+variable "map_object_with_default_and_nest_object" {
+  type = map(object({
+    name = string
+    age  = number
+    email = optional(
+      object({
+        address = string
+        domain  = optional(string, "attr.com")
+      }),
+      {
+        address = "bob_nest",
+        domain  = "nest.com"
+    })
+  }))
+  default = {
+    "ab" : {
+      name = "Bob"
+      age  = 23
+      email = {
+        address = "bob"
+        domain  = "example.com"
+      }
+    }
+  }
+}
+
+## Simple object only default
+
+variable "simple_object_only_default" {
+  default = {
+    name = "Bob"
+    age  = 23
+  }
 }
