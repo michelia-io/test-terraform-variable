@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template issue-1356
+components:
+  schemas:
+    variables:
+      type: object
+      properties:
+        test_map:
+          title: Test Map
+          type: object
+          default:
+            age: "30"
+            email: john@example.com
+            name: John
+          required:
+          - age
+          - email
+          - name
+          properties:
+            age:
+              title: Age
+              type: string
+            email:
+              title: Email
+              type: string
+            name:
+              title: Name
+              type: string
+          x-walrus-ui:
+            colSpan: 12
+            order: 1

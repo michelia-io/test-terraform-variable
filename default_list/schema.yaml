@@ -1,0 +1,289 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template default_list
+components:
+  schemas:
+    variables:
+      type: object
+      required:
+      - object_with_attr_default
+      - object_with_nest_object
+      - simple_object
+      properties:
+        list_string:
+          title: List String
+          type: array
+          default:
+          - a1
+          - a2
+          items:
+            type: string
+          x-walrus-ui:
+            colSpan: 12
+            order: 1
+        list_number:
+          title: List Number
+          type: array
+          default:
+          - 80
+          - 443
+          items:
+            type: number
+          x-walrus-ui:
+            colSpan: 12
+            order: 2
+        list_bool:
+          title: List Bool
+          type: array
+          default:
+          - true
+          - false
+          items:
+            type: boolean
+          x-walrus-ui:
+            colSpan: 12
+            order: 3
+        list_object:
+          title: List Object
+          type: array
+          items:
+            properties:
+              age:
+                title: Age
+                type: number
+                x-walrus-ui:
+                  order: 2
+              email:
+                properties:
+                  address:
+                    title: Address
+                    type: string
+                    x-walrus-ui:
+                      order: 1
+                  domain:
+                    default: test.com
+                    title: Domain
+                    type: string
+                    x-walrus-ui:
+                      order: 2
+                required:
+                - address
+                title: Email
+                type: object
+                x-walrus-ui:
+                  colSpan: 12
+                  order: 3
+              name:
+                title: Name
+                type: string
+                x-walrus-ui:
+                  order: 1
+            required:
+            - age
+            - name
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 4
+        list_list_str:
+          title: List List Str
+          type: array
+          default:
+          - - a1
+          items:
+            items:
+              type: string
+            type: array
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 5
+        list_map_string:
+          title: List Map String
+          type: array
+          description: List of maps containing node pools
+          default:
+          - name: default-node-pool
+          items:
+            additionalProperties:
+              type: string
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 6
+        list_map_any:
+          title: List Map Any
+          type: array
+          description: List of maps containing node pools
+          default:
+          - name: default-node-pool
+          items:
+            additionalProperties:
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 7
+        list_any:
+          title: List Any
+          type: array
+          default:
+          - - a1
+          items:
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 8
+        def_list_string:
+          title: Def List String
+          type: array
+          default:
+          - a1
+          - a2
+          items:
+            type: string
+          x-walrus-ui:
+            colSpan: 12
+            order: 9
+        def_list_number:
+          title: Def List Number
+          type: array
+          default:
+          - 80
+          - 443
+          items:
+            type: number
+          x-walrus-ui:
+            colSpan: 12
+            order: 10
+        def_list_bool:
+          title: Def List Bool
+          type: array
+          default:
+          - true
+          - false
+          items:
+            type: boolean
+          x-walrus-ui:
+            colSpan: 12
+            order: 11
+        def_list_object:
+          title: Def List Object
+          type: array
+          default:
+          - age: 23
+            email:
+              address: bob
+              domain: example.com
+            name: Bob
+          items:
+            properties:
+              age:
+                title: Age
+                type: number
+              email:
+                properties:
+                  address:
+                    title: Address
+                    type: string
+                  domain:
+                    title: Domain
+                    type: string
+                required:
+                - address
+                - domain
+                title: Email
+                type: object
+                x-walrus-ui:
+                  colSpan: 12
+              name:
+                title: Name
+                type: string
+            required:
+            - age
+            - email
+            - name
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 12
+        def_list_list_str:
+          title: Def List List Str
+          type: array
+          default:
+          - - a1
+          items:
+            items:
+              type: string
+            type: array
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 13
+        def_list_map_string:
+          title: Def List Map String
+          type: array
+          description: List of maps containing node pools
+          default:
+          - name: default-node-pool
+          items:
+            properties:
+              name:
+                title: Name
+                type: string
+            required:
+            - name
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 14
+        def_list_map_any:
+          title: Def List Map Any
+          type: array
+          description: List of maps containing node pools
+          default:
+          - name: default-node-pool
+          items:
+            properties:
+              name:
+                title: Name
+                type: string
+            required:
+            - name
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 15
+        def_list_any:
+          title: Def List Any
+          type: array
+          default:
+          - - a1
+          items:
+            items:
+              type: string
+            type: array
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 16
+        

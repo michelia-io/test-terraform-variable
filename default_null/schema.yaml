@@ -1,0 +1,361 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template default_null
+components:
+  schemas:
+    variables:
+      type: object
+      properties:
+        str:
+          title: Str
+          type: string
+          default: ""
+          x-walrus-ui:
+            order: 1
+        str_null:
+          title: Str Null
+          type: string
+          x-walrus-ui:
+            order: 2
+        num:
+          title: Num
+          type: number
+          default: 0
+          x-walrus-ui:
+            order: 3
+        num_null:
+          title: Num Null
+          type: number
+          x-walrus-ui:
+            order: 4
+        bool:
+          title: Bool
+          type: boolean
+          default: false
+          x-walrus-ui:
+            order: 5
+        bool_null:
+          title: Bool Null
+          type: boolean
+          x-walrus-ui:
+            order: 6
+        def_str:
+          title: Def Str
+          type: string
+          default: ""
+          x-walrus-ui:
+            order: 7
+        def_str_null:
+          title: Def Str Null
+          type: object
+          x-walrus-ui:
+            colSpan: 12
+            order: 8
+            widget: Yaml
+        list_string:
+          title: List String
+          type: array
+          default: []
+          items:
+            type: string
+          x-walrus-ui:
+            colSpan: 12
+            order: 9
+        list_string_null:
+          title: List String Null
+          type: array
+          items:
+            type: string
+          x-walrus-ui:
+            colSpan: 12
+            order: 10
+        list_number:
+          title: List Number
+          type: array
+          default: []
+          items:
+            type: number
+          x-walrus-ui:
+            colSpan: 12
+            order: 11
+        list_number_null:
+          title: List Number Null
+          type: array
+          items:
+            type: number
+          x-walrus-ui:
+            colSpan: 12
+            order: 12
+        list_bool:
+          title: List Bool
+          type: array
+          default: []
+          items:
+            type: boolean
+          x-walrus-ui:
+            colSpan: 12
+            order: 13
+        list_bool_null:
+          title: List Bool Null
+          type: array
+          items:
+            type: boolean
+          x-walrus-ui:
+            colSpan: 12
+            order: 14
+        list_object:
+          title: List Object
+          type: array
+          items:
+            properties:
+              age:
+                default: 10
+                title: Age
+                type: number
+                x-walrus-ui:
+                  order: 2
+              email:
+                properties:
+                  address:
+                    title: Address
+                    type: string
+                    x-walrus-ui:
+                      order: 1
+                  domain:
+                    default: test.com
+                    title: Domain
+                    type: string
+                    x-walrus-ui:
+                      order: 2
+                required:
+                - address
+                title: Email
+                type: object
+                x-walrus-ui:
+                  colSpan: 12
+                  order: 3
+              name:
+                title: Name
+                type: string
+                x-walrus-ui:
+                  order: 1
+            required:
+            - name
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 15
+        list_list_str:
+          title: List List Str
+          type: array
+          items:
+            items:
+              type: string
+            type: array
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 16
+        list_map_string:
+          title: List Map String
+          type: array
+          description: List of maps containing node pools
+          items:
+            additionalProperties:
+              type: string
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 17
+        list_map_any:
+          title: List Map Any
+          type: array
+          description: List of maps containing node pools
+          items:
+            additionalProperties:
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                widget: Yaml
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 18
+        map_str:
+          title: Map Str
+          type: object
+          default:
+            age2: "30"
+            email2: null
+            name2: John
+          additionalProperties:
+            type: string
+          x-walrus-ui:
+            colSpan: 12
+            order: 19
+        map_number:
+          title: Map Number
+          type: object
+          default:
+            port: null
+          additionalProperties:
+            type: number
+          x-walrus-ui:
+            colSpan: 12
+            order: 20
+        map_bool:
+          title: Map Bool
+          type: object
+          default:
+            isNow: null
+          additionalProperties:
+            type: boolean
+          x-walrus-ui:
+            colSpan: 12
+            order: 21
+        map_any:
+          title: Map Any
+          type: object
+          default:
+            name: null
+          additionalProperties:
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+              widget: Yaml
+          x-walrus-ui:
+            colSpan: 12
+            order: 22
+        def_map_str:
+          title: Def Map Str
+          type: object
+          default:
+            age2: "30"
+            email2: null
+            name2: John
+          required:
+          - age2
+          - email2
+          - name2
+          properties:
+            age2:
+              title: Age2
+              type: string
+            email2:
+              title: Email2
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                widget: Yaml
+            name2:
+              title: Name2
+              type: string
+          x-walrus-ui:
+            colSpan: 12
+            order: 23
+        def_map_number:
+          title: Def Map Number
+          type: object
+          default:
+            port: null
+          required:
+          - port
+          properties:
+            port:
+              title: Port
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                widget: Yaml
+          x-walrus-ui:
+            colSpan: 12
+            order: 24
+        object_with_default:
+          title: Object With Default
+          type: object
+          required:
+          - name
+          properties:
+            age:
+              default: 10
+              title: Age
+              type: number
+              x-walrus-ui:
+                order: 2
+            name:
+              title: Name
+              type: string
+              x-walrus-ui:
+                order: 1
+          x-walrus-ui:
+            colSpan: 12
+            order: 25
+        object_with_attr_default:
+          title: Object With Attr Default
+          type: object
+          properties:
+            age:
+              title: Age
+              type: number
+              x-walrus-ui:
+                order: 2
+            name:
+              default: Bob
+              title: Name
+              type: string
+              x-walrus-ui:
+                order: 1
+          x-walrus-ui:
+            colSpan: 12
+            order: 26
+        list_object_with_default_and_nest_object:
+          title: List Object With Default And Nest Object
+          type: array
+          items:
+            properties:
+              age:
+                title: Age
+                type: number
+                x-walrus-ui:
+                  order: 2
+              email:
+                properties:
+                  address:
+                    title: Address
+                    type: string
+                    x-walrus-ui:
+                      order: 1
+                  domain:
+                    default: attr.com
+                    title: Domain
+                    type: string
+                    x-walrus-ui:
+                      order: 2
+                required:
+                - address
+                title: Email
+                type: object
+                x-walrus-ui:
+                  colSpan: 12
+                  order: 3
+              name:
+                title: Name
+                type: string
+                x-walrus-ui:
+                  order: 1
+            required:
+            - age
+            - name
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 27

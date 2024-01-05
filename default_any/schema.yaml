@@ -1,0 +1,411 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template default_any
+components:
+  schemas:
+    variables:
+      type: object
+      required:
+      - object_with_attr_default_any
+      - object_with_nest_object
+      - simple_object_any
+      properties:
+        any_str:
+          title: Any Str
+          type: object
+          default: variable-test
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 1
+            widget: Yaml
+        any_num:
+          title: Any Num
+          type: object
+          default: 123
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 2
+            widget: Yaml
+        any_bool:
+          title: Any Bool
+          type: object
+          default: false
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 3
+            widget: Yaml
+        any_object:
+          title: Any Object
+          type: object
+          default:
+            age2: "30"
+            email2: john@example.com
+            name2: John
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 4
+            widget: Yaml
+        any_list:
+          title: Any List
+          type: object
+          default:
+          - age2: "30"
+            email2: john@example.com
+            name2: John
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 5
+            widget: Yaml
+        any_map:
+          title: Any Map
+          type: object
+          default:
+            age2: "30"
+            email2: john@example.com
+            name2: John
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 6
+            widget: Yaml
+        list_any:
+          title: List Any
+          type: array
+          default:
+          - a1
+          - a2
+          items:
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+              widget: Yaml
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 4
+        map_any:
+          title: Map Any
+          type: object
+          default:
+            age2: "30"
+            email2: john@example.com
+            name2: John
+          additionalProperties:
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+              widget: Yaml
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 6
+        simple_object_any:
+          title: Simple Object Any
+          type: object
+          required:
+          - age
+          - name
+          properties:
+            age:
+              title: Age
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                order: 2
+                widget: Yaml
+            name:
+              title: Name
+              type: string
+              x-walrus-ui:
+                order: 1
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 7
+        list_map_any:
+          title: List Map Any
+          type: array
+          description: List of maps containing node pools
+          default:
+          - name: default-node-pool
+          items:
+            additionalProperties:
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                widget: Yaml
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 5
+        object_with_default_any:
+          title: Object With Default Any
+          type: object
+          default:
+            age: 23
+            name: Bob
+          required:
+          - age
+          - name
+          properties:
+            age:
+              title: Age
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                order: 2
+                widget: Yaml
+            name:
+              title: Name
+              type: string
+              x-walrus-ui:
+                order: 1
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 8
+        object_with_attr_default_any:
+          title: Object With Attr Default Any
+          type: object
+          properties:
+            age:
+              default: 23
+              title: Age
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                order: 2
+                widget: Yaml
+            name:
+              default: Bob
+              title: Name
+              type: string
+              x-walrus-ui:
+                order: 1
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 9
+        object_with_nest_object:
+          title: Object With Nest Object
+          type: object
+          required:
+          - age
+          - name
+          properties:
+            age:
+              title: Age
+              type: number
+              x-walrus-ui:
+                order: 2
+            email:
+              properties:
+                address:
+                  title: Address
+                  type: string
+                  x-walrus-ui:
+                    order: 1
+                domain:
+                  default: test.com
+                  title: Domain
+                  type: object
+                  x-walrus-ui:
+                    colSpan: 12
+                    order: 2
+                    widget: Yaml
+              required:
+              - address
+              title: Email
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                order: 3
+            name:
+              title: Name
+              type: string
+              x-walrus-ui:
+                order: 1
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 10
+        object_with_default_and_nest_object:
+          title: Object With Default And Nest Object
+          type: object
+          default:
+            age: 23
+            email:
+              address: bob
+              domain: example.com
+            name: Bob
+          required:
+          - age
+          - name
+          properties:
+            age:
+              title: Age
+              type: number
+              x-walrus-ui:
+                order: 2
+            email:
+              properties:
+                address:
+                  title: Address
+                  type: string
+                  x-walrus-ui:
+                    order: 1
+                domain:
+                  default: test.com
+                  title: Domain
+                  type: object
+                  x-walrus-ui:
+                    colSpan: 12
+                    order: 2
+                    widget: Yaml
+              required:
+              - address
+              title: Email
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                order: 3
+            name:
+              title: Name
+              type: string
+              x-walrus-ui:
+                order: 1
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 11
+        object_with_default_and_nest_object3:
+          title: Object With Default And Nest Object3
+          type: object
+          default:
+            age: 23
+            email:
+              address: bob
+              domain: example.com
+            name: Bob
+          required:
+          - age
+          - name
+          properties:
+            age:
+              title: Age
+              type: number
+              x-walrus-ui:
+                order: 2
+            email:
+              default:
+                address: bob_nest
+                domain: nest.com
+              title: Email
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                order: 3
+                widget: Yaml
+            name:
+              title: Name
+              type: string
+              x-walrus-ui:
+                order: 1
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 13
+        list_object_with_default_and_nest_object:
+          title: List Object With Default And Nest Object
+          type: array
+          default:
+          - age: 23
+            email:
+              address: bob
+              domain: example.com
+            name: Bob
+          items:
+            properties:
+              age:
+                title: Age
+                type: number
+                x-walrus-ui:
+                  order: 2
+              email:
+                default:
+                  address: bob_nest
+                  domain: nest.com
+                title: Email
+                type: object
+                x-walrus-ui:
+                  colSpan: 12
+                  order: 3
+                  widget: Yaml
+              name:
+                title: Name
+                type: string
+                x-walrus-ui:
+                  order: 1
+            required:
+            - age
+            - name
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 14
+        map_object_with_default_and_nest_object:
+          title: Map Object With Default And Nest Object
+          type: object
+          default:
+            ab:
+              age: 23
+              email:
+                address: bob
+                domain: example.com
+              name: Bob
+          additionalProperties:
+            properties:
+              age:
+                title: Age
+                type: number
+                x-walrus-ui:
+                  order: 2
+              email:
+                default:
+                  address: bob_nest
+                  domain: nest.com
+                title: Email
+                type: object
+                x-walrus-ui:
+                  colSpan: 12
+                  order: 3
+                  widget: Yaml
+              name:
+                title: Name
+                type: string
+                x-walrus-ui:
+                  order: 1
+            required:
+            - age
+            - name
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 15
+      x-walrus-ui:
+        groupOrder:
+        - Basic

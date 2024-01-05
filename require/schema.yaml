@@ -1,0 +1,51 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template require
+components:
+  schemas:
+    variables:
+      type: object
+      properties:
+        object_with_default_and_nest_object:
+          title: Object With Default And Nest Object
+          type: object
+          nullable: true
+          required:
+          - age
+          - email
+          - name
+          properties:
+            age:
+              title: Age
+              type: number
+              x-walrus-ui:
+                order: 2
+            email:
+              properties:
+                address:
+                  title: Address
+                  type: string
+                  x-walrus-ui:
+                    order: 1
+                domain:
+                  default: test.com
+                  nullable: true
+                  title: Domain
+                  type: string
+                  x-walrus-ui:
+                    order: 2
+              required:
+              - address
+              title: Email
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                order: 3
+            name:
+              title: Name
+              type: string
+              x-walrus-ui:
+                order: 1
+          x-walrus-ui:
+            colSpan: 12
+            order: 1

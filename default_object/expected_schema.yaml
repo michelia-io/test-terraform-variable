@@ -14,42 +14,36 @@ components:
           title: Str
           type: string
           default: variable-test
-          nullable: true
           x-walrus-ui:
             order: 1
         num:
           title: Num
           type: number
           default: 123
-          nullable: true
           x-walrus-ui:
             order: 2
         bool:
           title: Bool
           type: boolean
           default: false
-          nullable: true
           x-walrus-ui:
             order: 3
         def_str:
           title: Def Str
           type: string
           default: variable-test
-          nullable: true
           x-walrus-ui:
             order: 4
         def_num:
           title: Def Num
           type: number
           default: 123
-          nullable: true
           x-walrus-ui:
             order: 5
         def_bool:
           title: Def Bool
           type: boolean
           default: true
-          nullable: true
           x-walrus-ui:
             order: 6
         list_string:
@@ -60,7 +54,6 @@ components:
           - a2
           items:
             type: string
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 7
@@ -72,7 +65,6 @@ components:
           - 443
           items:
             type: number
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 8
@@ -84,13 +76,18 @@ components:
           - false
           items:
             type: boolean
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 9
         list_object:
           title: List Object
           type: array
+          default:
+          - age: 23
+            email:
+              address: bob
+              domain: example.com
+            name: Bob
           items:
             properties:
               age:
@@ -99,7 +96,6 @@ components:
                 x-walrus-ui:
                   order: 2
               email:
-                nullable: true
                 properties:
                   address:
                     title: Address
@@ -108,7 +104,6 @@ components:
                       order: 1
                   domain:
                     default: test.com
-                    nullable: true
                     title: Domain
                     type: string
                     x-walrus-ui:
@@ -131,7 +126,6 @@ components:
             type: object
             x-walrus-ui:
               colSpan: 12
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 10
@@ -146,7 +140,6 @@ components:
             type: array
             x-walrus-ui:
               colSpan: 12
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 11
@@ -162,7 +155,6 @@ components:
             type: object
             x-walrus-ui:
               colSpan: 12
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 12
@@ -180,7 +172,6 @@ components:
             type: object
             x-walrus-ui:
               colSpan: 12
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 13
@@ -193,7 +184,6 @@ components:
             type: object
             x-walrus-ui:
               colSpan: 12
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 14
@@ -205,7 +195,6 @@ components:
           - a2
           items:
             type: string
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 15
@@ -217,7 +206,6 @@ components:
           - 443
           items:
             type: number
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 16
@@ -229,7 +217,6 @@ components:
           - false
           items:
             type: boolean
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 17
@@ -272,7 +259,6 @@ components:
             type: object
             x-walrus-ui:
               colSpan: 12
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 18
@@ -287,7 +273,6 @@ components:
             type: array
             x-walrus-ui:
               colSpan: 12
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 19
@@ -307,7 +292,6 @@ components:
             type: object
             x-walrus-ui:
               colSpan: 12
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 20
@@ -327,7 +311,6 @@ components:
             type: object
             x-walrus-ui:
               colSpan: 12
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 21
@@ -342,7 +325,6 @@ components:
             type: array
             x-walrus-ui:
               colSpan: 12
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 22
@@ -353,7 +335,6 @@ components:
             age2: "30"
             email2: john@example.com
             name2: John
-          nullable: true
           additionalProperties:
             type: string
           x-walrus-ui:
@@ -364,7 +345,6 @@ components:
           type: object
           default:
             port: 80
-          nullable: true
           additionalProperties:
             type: number
           x-walrus-ui:
@@ -375,7 +355,6 @@ components:
           type: object
           default:
             isNow: true
-          nullable: true
           additionalProperties:
             type: boolean
           x-walrus-ui:
@@ -386,7 +365,6 @@ components:
           type: object
           default:
             name: John
-          nullable: true
           additionalProperties:
             type: object
             x-walrus-ui:
@@ -401,7 +379,6 @@ components:
             age2: "30"
             email2: john@example.com
             name2: John
-          nullable: true
           required:
           - age2
           - email2
@@ -424,7 +401,6 @@ components:
           type: object
           default:
             port: 80
-          nullable: true
           required:
           - port
           properties:
@@ -439,7 +415,6 @@ components:
           type: object
           default:
             isNow: true
-          nullable: true
           required:
           - isNow
           properties:
@@ -454,7 +429,6 @@ components:
           type: object
           default:
             name: John
-          nullable: true
           required:
           - name
           properties:
@@ -482,7 +456,7 @@ components:
               x-walrus-ui:
                 order: 1
           x-walrus-ui:
-            colSpan: 12
+            colSpan: 6
             order: 31
         object_with_default:
           title: Object With Default
@@ -490,7 +464,6 @@ components:
           default:
             age: 23
             name: Bob
-          nullable: true
           required:
           - age
           - name
@@ -506,7 +479,7 @@ components:
               x-walrus-ui:
                 order: 1
           x-walrus-ui:
-            colSpan: 12
+            colSpan: 6
             order: 32
         object_with_attr_default:
           title: Object With Attr Default
@@ -514,14 +487,12 @@ components:
           properties:
             age:
               default: 23
-              nullable: true
               title: Age
               type: number
               x-walrus-ui:
                 order: 2
             name:
               default: Bob
-              nullable: true
               title: Name
               type: string
               x-walrus-ui:
@@ -542,7 +513,6 @@ components:
               x-walrus-ui:
                 order: 2
             email:
-              nullable: true
               properties:
                 address:
                   title: Address
@@ -551,7 +521,6 @@ components:
                     order: 1
                 domain:
                   default: test.com
-                  nullable: true
                   title: Domain
                   type: string
                   x-walrus-ui:
@@ -574,7 +543,6 @@ components:
         object_with_default_and_nest_object:
           title: Object With Default And Nest Object
           type: object
-          nullable: true
           default:
             age: 23
             name: Bob
@@ -591,7 +559,6 @@ components:
               x-walrus-ui:
                 order: 2
             email:
-              nullable: true
               properties:
                 address:
                   title: Address
@@ -600,7 +567,6 @@ components:
                     order: 1
                 domain:
                   default: test.com
-                  nullable: true
                   title: Domain
                   type: string
                   x-walrus-ui:
@@ -623,7 +589,11 @@ components:
         object_with_default_and_nest_object2:
           title: Object With Default And Nest Object2
           type: object
-          nullable: true
+          default:
+            age: 23
+            name: Bob
+            email:
+              address: bob
           required:
           - age
           - name
@@ -634,7 +604,6 @@ components:
               x-walrus-ui:
                 order: 2
             email:
-              nullable: true
               properties:
                 address:
                   title: Address
@@ -643,7 +612,6 @@ components:
                     order: 1
                 domain:
                   default: test.com
-                  nullable: true
                   title: Domain
                   type: string
                   x-walrus-ui:
@@ -666,7 +634,12 @@ components:
         object_with_default_and_nest_object3:
           title: Object With Default And Nest Object3
           type: object
-          nullable: true
+          default:
+            age: 23
+            name: Bob
+            email:
+              address: bob
+              domain: example.com
           required:
           - age
           - name
@@ -677,7 +650,9 @@ components:
               x-walrus-ui:
                 order: 2
             email:
-              nullable: true
+              default:
+                address: bob_nest
+                domain: nest.com
               properties:
                 address:
                   title: Address
@@ -686,7 +661,6 @@ components:
                     order: 1
                 domain:
                   default: attr.com
-                  nullable: true
                   title: Domain
                   type: string
                   x-walrus-ui:
@@ -709,6 +683,12 @@ components:
         list_object_with_default_and_nest_object:
           title: List Object With Default And Nest Object
           type: array
+          default:
+          - age: 23
+            name: Bob
+            email:
+              address: bob
+              domain: example.com
           items:
             properties:
               age:
@@ -717,7 +697,9 @@ components:
                 x-walrus-ui:
                   order: 2
               email:
-                nullable: true
+                default:
+                  address: bob_nest
+                  domain: nest.com
                 properties:
                   address:
                     title: Address
@@ -726,7 +708,6 @@ components:
                       order: 1
                   domain:
                     default: attr.com
-                    nullable: true
                     title: Domain
                     type: string
                     x-walrus-ui:
@@ -749,14 +730,19 @@ components:
             type: object
             x-walrus-ui:
               colSpan: 12
-          nullable: true
           x-walrus-ui:
             colSpan: 12
             order: 38
         map_object_with_default_and_nest_object:
           title: Map Object With Default And Nest Object
           type: object
-          nullable: true
+          default:
+            ab: 
+              age: 23
+              name: Bob
+              email:
+                address: bob
+                domain: example.com
           additionalProperties:
             properties:
               age:
@@ -765,7 +751,9 @@ components:
                 x-walrus-ui:
                   order: 2
               email:
-                nullable: true
+                default:
+                  address: bob_nest
+                  domain: nest.com
                 properties:
                   address:
                     title: Address
@@ -774,7 +762,6 @@ components:
                       order: 1
                   domain:
                     default: attr.com
-                    nullable: true
                     title: Domain
                     type: string
                     x-walrus-ui:
@@ -806,7 +793,6 @@ components:
           default:
             age: 23
             name: Bob
-          nullable: true
           required:
           - age
           - name
