@@ -1,0 +1,36 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template context
+components:
+  schemas:
+    variables:
+      type: object
+      properties:
+        any_str:
+          title: Any Str
+          type: object
+          default: variable-test
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 1
+            widget: YamlEditor
+        any_num:
+          title: Any Num
+          type: object
+          default: 123
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 2
+            widget: YamlEditor
+        context:
+          title: Context
+          type: any
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 3
+      x-walrus-ui:
+        groupOrder:
+        - Basic
