@@ -53,6 +53,53 @@ components:
             colSpan: 12
             group: Basic
             order: 1
+        test_object2:
+          title: Test Object2
+          type: object
+          default:
+            age: 23
+            email:
+              address: bob
+              domain: example.com
+            name: Bob
+          required:
+          - age
+          - name
+          properties:
+            age:
+              title: Age
+              type: number
+              x-walrus-ui:
+                order: 2
+            email:
+              properties:
+                address:
+                  title: Address
+                  type: string
+                  x-walrus-ui:
+                    order: 1
+                domain:
+                  default: test.com
+                  title: Domain
+                  type: string
+                  x-walrus-ui:
+                    order: 2
+              required:
+              - address
+              title: Email
+              type: object
+              x-walrus-ui:
+                colSpan: 12
+                order: 3
+            name:
+              title: Name
+              type: string
+              x-walrus-ui:
+                order: 1
+          x-walrus-ui:
+            colSpan: 12
+            group: Basic
+            order: 2
       x-walrus-ui:
         groupOrder:
         - Basic
